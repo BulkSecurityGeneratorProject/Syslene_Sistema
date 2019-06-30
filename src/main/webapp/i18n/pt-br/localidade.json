@@ -1,0 +1,26 @@
+{
+  "sysleneApp": {
+    "localidade": {
+      "home": {
+        "title": "Localidades",
+        "createLabel": "Criar novo Localidade",
+        "createOrEditLabel": "Criar ou editar Localidade"
+      },
+      "created": "Um novo Localidade foi criado com o identificador {{ param }}",
+      "updated": "Um Localidade foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Localidade foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Localidade {{ id }}?"
+      },
+      "detail": {
+        "title": "Localidade"
+      },
+      "descricao": "Descricao",
+      "abastecimentoAgua": "Abastecimento Agua",
+      "esgotoSanitario": "Esgoto Sanitario",
+      "coletaResiduos": "Coleta Residuos",
+      "dataAlteracao": "Data Alteracao",
+      "user": "User"
+    }
+  }
+}

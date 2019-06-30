@@ -1,0 +1,125 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="domicilio">
+            <h2><span jhiTranslate="sysleneApp.domicilio.detail.title">Domicilio</span> {{domicilio.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sysleneApp.domicilio.nomeMorador">Nome Morador</span></dt>
+                <dd>
+                    <span>{{domicilio.nomeMorador}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.endereco">Endereco</span></dt>
+                <dd>
+                    <span>{{domicilio.endereco}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.latitude">Latitude</span></dt>
+                <dd>
+                    <span>{{domicilio.latitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.longitude">Longitude</span></dt>
+                <dd>
+                    <span>{{domicilio.longitude}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.numeroHabitantes">Numero Habitantes</span></dt>
+                <dd>
+                    <span>{{domicilio.numeroHabitantes}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.ligacaoDomiciliarAgua">Ligacao Domiciliar Agua</span></dt>
+                <dd>
+                    <span>{{domicilio.ligacaoDomiciliarAgua}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.poco">Poco</span></dt>
+                <dd>
+                    <span>{{domicilio.poco}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.cisterna">Cisterna</span></dt>
+                <dd>
+                    <span>{{domicilio.cisterna}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.reservatorioElevado">Reservatorio Elevado</span></dt>
+                <dd>
+                    <span>{{domicilio.reservatorioElevado}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.reservatorioSemiElevado">Reservatorio Semi Elevado</span></dt>
+                <dd>
+                    <span>{{domicilio.reservatorioSemiElevado}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.conjuntoSanitario">Conjunto Sanitario</span></dt>
+                <dd>
+                    <span>{{domicilio.conjuntoSanitario}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.piaCozinha">Pia Cozinha</span></dt>
+                <dd>
+                    <span>{{domicilio.piaCozinha}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.tanqueLavarRoupa">Tanque Lavar Roupa</span></dt>
+                <dd>
+                    <span>{{domicilio.tanqueLavarRoupa}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.filtroDomestico">Filtro Domestico</span></dt>
+                <dd>
+                    <span>{{domicilio.filtroDomestico}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.tanqueSeptico">Tanque Septico</span></dt>
+                <dd>
+                    <span>{{domicilio.tanqueSeptico}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.sumidouro">Sumidouro</span></dt>
+                <dd>
+                    <span>{{domicilio.sumidouro}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.valaInfiltracao">Vala Infiltracao</span></dt>
+                <dd>
+                    <span>{{domicilio.valaInfiltracao}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.sistemaReuso">Sistema Reuso</span></dt>
+                <dd>
+                    <span>{{domicilio.sistemaReuso}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.ligacaoDomiciliarEsgoto">Ligacao Domiciliar Esgoto</span></dt>
+                <dd>
+                    <span>{{domicilio.ligacaoDomiciliarEsgoto}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.recipenteResiduosSolidos">Recipente Residuos Solidos</span></dt>
+                <dd>
+                    <span>{{domicilio.recipenteResiduosSolidos}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.dataCadastro">Data Cadastro</span></dt>
+                <dd>
+                    <span>{{domicilio.dataCadastro}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.levantamentoConcluido">Levantamento Concluido</span></dt>
+                <dd>
+                    <span>{{domicilio.levantamentoConcluido}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.dataAlteracao">Data Alteracao</span></dt>
+                <dd>
+                    <span>{{domicilio.dataAlteracao}}</span>
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.user">User</span></dt>
+                <dd>
+                    {{domicilio.userFirstName}}
+                </dd>
+                <dt><span jhiTranslate="sysleneApp.domicilio.localidade">Localidade</span></dt>
+                <dd>
+                    <div *ngIf="domicilio.localidadeId">
+                        <a [routerLink]="['/localidade', domicilio.localidadeId, 'view']">{{domicilio.localidadeDescricao}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/domicilio', domicilio.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

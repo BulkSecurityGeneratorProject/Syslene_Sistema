@@ -35,6 +35,8 @@
     "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "pt-br",
-    "languages": ["pt-br"]
+    "languages": ["pt-br"],
+    "herokuAppName": "syslene-pos-facape",
+    "herokuDeployType": "git"
   }
 }

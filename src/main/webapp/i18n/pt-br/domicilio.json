@@ -1,0 +1,45 @@
+{
+  "sysleneApp": {
+    "domicilio": {
+      "home": {
+        "title": "Domicilios",
+        "createLabel": "Criar novo Domicilio",
+        "createOrEditLabel": "Criar ou editar Domicilio"
+      },
+      "created": "Um novo Domicilio foi criado com o identificador {{ param }}",
+      "updated": "Um Domicilio foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Domicilio foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Domicilio {{ id }}?"
+      },
+      "detail": {
+        "title": "Domicilio"
+      },
+      "nomeMorador": "Nome Morador",
+      "endereco": "Endereco",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "numeroHabitantes": "Numero Habitantes",
+      "ligacaoDomiciliarAgua": "Ligacao Domiciliar Agua",
+      "poco": "Poco",
+      "cisterna": "Cisterna",
+      "reservatorioElevado": "Reservatorio Elevado",
+      "reservatorioSemiElevado": "Reservatorio Semi Elevado",
+      "conjuntoSanitario": "Conjunto Sanitario",
+      "piaCozinha": "Pia Cozinha",
+      "tanqueLavarRoupa": "Tanque Lavar Roupa",
+      "filtroDomestico": "Filtro Domestico",
+      "tanqueSeptico": "Tanque Septico",
+      "sumidouro": "Sumidouro",
+      "valaInfiltracao": "Vala Infiltracao",
+      "sistemaReuso": "Sistema Reuso",
+      "ligacaoDomiciliarEsgoto": "Ligacao Domiciliar Esgoto",
+      "recipenteResiduosSolidos": "Recipente Residuos Solidos",
+      "dataCadastro": "Data Cadastro",
+      "levantamentoConcluido": "Levantamento Concluido",
+      "dataAlteracao": "Data Alteracao",
+      "user": "User",
+      "localidade": "Localidade"
+    }
+  }
+}

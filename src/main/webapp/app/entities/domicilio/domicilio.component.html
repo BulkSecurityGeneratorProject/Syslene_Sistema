@@ -1,0 +1,116 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sysleneApp.domicilio.home.title">Domicilios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-domicilio" [routerLink]="['/domicilio/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sysleneApp.domicilio.home.createLabel">
+            Create new Domicilio
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="domicilios">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomeMorador"><span jhiTranslate="sysleneApp.domicilio.nomeMorador">Nome Morador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="endereco"><span jhiTranslate="sysleneApp.domicilio.endereco">Endereco</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="latitude"><span jhiTranslate="sysleneApp.domicilio.latitude">Latitude</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="longitude"><span jhiTranslate="sysleneApp.domicilio.longitude">Longitude</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroHabitantes"><span jhiTranslate="sysleneApp.domicilio.numeroHabitantes">Numero Habitantes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ligacaoDomiciliarAgua"><span jhiTranslate="sysleneApp.domicilio.ligacaoDomiciliarAgua">Ligacao Domiciliar Agua</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="poco"><span jhiTranslate="sysleneApp.domicilio.poco">Poco</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cisterna"><span jhiTranslate="sysleneApp.domicilio.cisterna">Cisterna</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="reservatorioElevado"><span jhiTranslate="sysleneApp.domicilio.reservatorioElevado">Reservatorio Elevado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="reservatorioSemiElevado"><span jhiTranslate="sysleneApp.domicilio.reservatorioSemiElevado">Reservatorio Semi Elevado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="conjuntoSanitario"><span jhiTranslate="sysleneApp.domicilio.conjuntoSanitario">Conjunto Sanitario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="piaCozinha"><span jhiTranslate="sysleneApp.domicilio.piaCozinha">Pia Cozinha</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tanqueLavarRoupa"><span jhiTranslate="sysleneApp.domicilio.tanqueLavarRoupa">Tanque Lavar Roupa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="filtroDomestico"><span jhiTranslate="sysleneApp.domicilio.filtroDomestico">Filtro Domestico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tanqueSeptico"><span jhiTranslate="sysleneApp.domicilio.tanqueSeptico">Tanque Septico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sumidouro"><span jhiTranslate="sysleneApp.domicilio.sumidouro">Sumidouro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valaInfiltracao"><span jhiTranslate="sysleneApp.domicilio.valaInfiltracao">Vala Infiltracao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sistemaReuso"><span jhiTranslate="sysleneApp.domicilio.sistemaReuso">Sistema Reuso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ligacaoDomiciliarEsgoto"><span jhiTranslate="sysleneApp.domicilio.ligacaoDomiciliarEsgoto">Ligacao Domiciliar Esgoto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recipenteResiduosSolidos"><span jhiTranslate="sysleneApp.domicilio.recipenteResiduosSolidos">Recipente Residuos Solidos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataCadastro"><span jhiTranslate="sysleneApp.domicilio.dataCadastro">Data Cadastro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="levantamentoConcluido"><span jhiTranslate="sysleneApp.domicilio.levantamentoConcluido">Levantamento Concluido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataAlteracao"><span jhiTranslate="sysleneApp.domicilio.dataAlteracao">Data Alteracao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userFirstName"><span jhiTranslate="sysleneApp.domicilio.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="localidadeDescricao"><span jhiTranslate="sysleneApp.domicilio.localidade">Localidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let domicilio of domicilios ;trackBy: trackId">
+                <td><a [routerLink]="['/domicilio', domicilio.id, 'view' ]">{{domicilio.id}}</a></td>
+                <td>{{domicilio.nomeMorador}}</td>
+                <td>{{domicilio.endereco}}</td>
+                <td>{{domicilio.latitude}}</td>
+                <td>{{domicilio.longitude}}</td>
+                <td>{{domicilio.numeroHabitantes}}</td>
+                <td>{{domicilio.ligacaoDomiciliarAgua}}</td>
+                <td>{{domicilio.poco}}</td>
+                <td>{{domicilio.cisterna}}</td>
+                <td>{{domicilio.reservatorioElevado}}</td>
+                <td>{{domicilio.reservatorioSemiElevado}}</td>
+                <td>{{domicilio.conjuntoSanitario}}</td>
+                <td>{{domicilio.piaCozinha}}</td>
+                <td>{{domicilio.tanqueLavarRoupa}}</td>
+                <td>{{domicilio.filtroDomestico}}</td>
+                <td>{{domicilio.tanqueSeptico}}</td>
+                <td>{{domicilio.sumidouro}}</td>
+                <td>{{domicilio.valaInfiltracao}}</td>
+                <td>{{domicilio.sistemaReuso}}</td>
+                <td>{{domicilio.ligacaoDomiciliarEsgoto}}</td>
+                <td>{{domicilio.recipenteResiduosSolidos}}</td>
+                <td>{{domicilio.dataCadastro | date:'mediumDate'}}</td>
+                <td>{{domicilio.levantamentoConcluido}}</td>
+                <td>{{domicilio.dataAlteracao | date:'mediumDate'}}</td>
+                <td>
+                    {{domicilio.userFirstName}}
+                </td>
+                <td>
+                    <div *ngIf="domicilio.localidadeId">
+                        <a [routerLink]="['../localidade', domicilio.localidadeId , 'view' ]" >{{domicilio.localidadeDescricao}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/domicilio', domicilio.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/domicilio', domicilio.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'domicilio', { outlets: { popup: domicilio.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="domicilios && domicilios.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

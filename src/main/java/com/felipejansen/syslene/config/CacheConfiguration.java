@@ -43,6 +43,8 @@ public class CacheConfiguration {
             createCache(cm, com.felipejansen.syslene.domain.User.class.getName());
             createCache(cm, com.felipejansen.syslene.domain.Authority.class.getName());
             createCache(cm, com.felipejansen.syslene.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.felipejansen.syslene.domain.Localidade.class.getName());
+            createCache(cm, com.felipejansen.syslene.domain.Domicilio.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

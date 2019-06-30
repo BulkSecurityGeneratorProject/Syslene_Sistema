@@ -4,6 +4,14 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     RouterModule.forChild([
+      {
+        path: 'localidade',
+        loadChildren: './localidade/localidade.module#SysleneLocalidadeModule'
+      },
+      {
+        path: 'domicilio',
+        loadChildren: './domicilio/domicilio.module#SysleneDomicilioModule'
+      }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
   ],

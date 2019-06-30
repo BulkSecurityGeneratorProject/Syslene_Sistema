@@ -1,0 +1,45 @@
+entity Localidade {
+descricao String required maxlength(80)
+abastecimentoAgua Boolean required
+esgotoSanitario Boolean required
+coletaResiduos Boolean required
+dataAlteracao LocalDate
+}
+
+entity Domicilio {
+nomeMorador String required maxlength(80)
+endereco String required maxlength(80)
+latitude String required
+longitude String required
+numeroHabitantes BigDecimal
+ligacaoDomiciliarAgua Boolean
+poco Boolean
+cisterna Boolean
+reservatorioElevado Boolean
+reservatorioSemiElevado Boolean
+conjuntoSanitario Boolean
+piaCozinha Boolean
+tanqueLavarRoupa Boolean
+filtroDomestico Boolean
+tanqueSeptico Boolean
+sumidouro Boolean
+valaInfiltracao Boolean
+sistemaReuso Boolean
+ligacaoDomiciliarEsgoto Boolean
+recipenteResiduosSolidos Boolean
+dataCadastro LocalDate
+levantamentoConcluido Boolean
+dataAlteracao LocalDate
+}
+
+relationship ManyToOne {
+	Localidade{ user(firstName) } to User
+    Domicilio{ user(firstName) } to User
+    Domicilio{ localidade(descricao) } to Localidade
+}
+
+
+dto * with mapstruct
+service all with serviceImpl
+paginate * with pagination
+filter *

@@ -1,0 +1,138 @@
+{
+    "name": "Domicilio",
+    "fields": [
+        {
+            "fieldName": "nomeMorador",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 80
+        },
+        {
+            "fieldName": "endereco",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 80
+        },
+        {
+            "fieldName": "latitude",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "longitude",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroHabitantes",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "ligacaoDomiciliarAgua",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "poco",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cisterna",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "reservatorioElevado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "reservatorioSemiElevado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "conjuntoSanitario",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "piaCozinha",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tanqueLavarRoupa",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "filtroDomestico",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tanqueSeptico",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "sumidouro",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "valaInfiltracao",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "sistemaReuso",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "ligacaoDomiciliarEsgoto",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "recipenteResiduosSolidos",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dataCadastro",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "levantamentoConcluido",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dataAlteracao",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "domicilio",
+            "relationshipName": "user",
+            "otherEntityField": "firstName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "localidade",
+            "otherEntityRelationshipName": "domicilio",
+            "relationshipName": "localidade",
+            "otherEntityField": "descricao"
+        }
+    ],
+    "changelogDate": "20190630134551",
+    "entityTableName": "domicilio",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
