@@ -1,0 +1,11 @@
+version: '2'
+services:
+  syslene-postgresql:
+    image: postgres:11.2
+    # volumes:
+    #     - ~/volumes/jhipster/syslene/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=syslene
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432

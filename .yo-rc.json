@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.felipejansen.syslene",
+      "nativeLanguage": "pt-br"
+    },
+    "jhipsterVersion": "6.0.1",
+    "applicationType": "monolith",
+    "baseName": "syslene",
+    "packageName": "com.felipejansen.syslene",
+    "packageFolder": "com/felipejansen/syslene",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzVlMzg3NzhlN2JjNmUzMWZjZjM4NmExNDc1NGM0M2U3MTA4ODRlMjU4MDVlYzZjODczNDA1NGU4YzUzZTJlMjllMDZhYzlhYmZjMDcxMzIwOGU0Y2VkZmFhZjljZDNkNzJjMGM4YjNlYjgwYjJhZWQ1MzEzOWE1N2IzZGQ5Yjg=",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "pt-br",
+    "languages": ["pt-br"]
+  }
+}
