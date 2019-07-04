@@ -6,12 +6,12 @@ import { AgmCoreModule } from '@agm/core';
     SysleneSharedLibsModule,
     SysleneSharedCommonModule,
     AgmCoreModule.forRoot({
-      apiKey: 'YOUR_KEY'
+      apiKey: 'AIzaSyA3PqiYidX6C7jB0firiGMyLS0L_3mIYko'
     })
   ],
   declarations: [JhiLoginModalComponent, HasAnyAuthorityDirective],
   entryComponents: [JhiLoginModalComponent],
-  exports: [SysleneSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective],
+  exports: [SysleneSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective, AgmCoreModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SysleneSharedModule {
