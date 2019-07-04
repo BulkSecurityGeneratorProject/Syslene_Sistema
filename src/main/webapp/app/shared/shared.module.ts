@@ -1,8 +1,14 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SysleneSharedLibsModule, SysleneSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective } from './';
-
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
-  imports: [SysleneSharedLibsModule, SysleneSharedCommonModule],
+  imports: [
+    SysleneSharedLibsModule,
+    SysleneSharedCommonModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_KEY'
+    })
+  ],
   declarations: [JhiLoginModalComponent, HasAnyAuthorityDirective],
   entryComponents: [JhiLoginModalComponent],
   exports: [SysleneSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective],

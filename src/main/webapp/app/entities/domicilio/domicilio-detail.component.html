@@ -107,6 +107,12 @@
                         <a [routerLink]="['/localidade', domicilio.localidadeId, 'view']">{{domicilio.localidadeDescricao}}</a>
                     </div>
                 </dd>
+                <dt><span>Localização</span></dt>
+                <dd>
+                    <agm-map [latitude]="domicilio.latitude" [longitude]="domicilio.longitude">
+                            <agm-marker [latitude]="domicilio.latitude" [longitude]="domicilio.longitude" ></agm-marker>
+                    </agm-map>
+                </dd>
             </dl>
 
             <button type="submit"

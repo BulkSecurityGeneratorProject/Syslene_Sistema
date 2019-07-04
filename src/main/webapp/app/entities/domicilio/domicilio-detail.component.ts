@@ -5,7 +5,8 @@ import { IDomicilio } from 'app/shared/model/domicilio.model';
 
 @Component({
   selector: 'jhi-domicilio-detail',
-  templateUrl: './domicilio-detail.component.html'
+  templateUrl: './domicilio-detail.component.html',
+  styleUrls: ['./domicilio-detail.component.scss']
 })
 export class DomicilioDetailComponent implements OnInit {
   domicilio: IDomicilio;
