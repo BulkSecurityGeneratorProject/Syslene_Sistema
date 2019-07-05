@@ -30,6 +30,23 @@ export class DomicilioComponent implements OnInit, OnDestroy {
   previousPage: any;
   reverse: any;
 
+  necessitaAgua = 'null';
+  poco = 'null';
+  cisterna = 'null';
+  reservatorioElevado = 'null';
+  reservatorioSemiElevado = 'null';
+  conjuntoSanitario = 'null';
+  piaCozinha = 'null';
+  tanqueLavarRoupa = 'null';
+  filtroDomestico = 'null';
+  tanqueSeptico = 'null';
+  sumidouro = 'null';
+  valaInfiltracao = 'null';
+  sistemaReuso = 'null';
+  ligacaoDomiciliarEsgoto = 'null';
+  recipenteResiduosSolidos = 'null';
+  levantamentoConcluido = 'null';
+
   constructor(
     protected domicilioService: DomicilioService,
     protected parseLinks: JhiParseLinks,
@@ -49,12 +66,34 @@ export class DomicilioComponent implements OnInit, OnDestroy {
   }
 
   loadAll() {
+    var req = {
+      page: this.page - 1,
+      size: this.itemsPerPage
+    };
+
+    if (this.necessitaAgua && this.necessitaAgua != 'null') req['ligacaoDomiciliarAgua.equals'] = this.necessitaAgua;
+    if (this.poco && this.poco != 'null') req['poco.equals'] = this.poco;
+    if (this.cisterna && this.cisterna != 'null') req['cisterna.equals'] = this.cisterna;
+    if (this.reservatorioElevado && this.reservatorioElevado != 'null') req['reservatorioElevado.equals'] = this.reservatorioElevado;
+    if (this.reservatorioSemiElevado && this.reservatorioSemiElevado != 'null')
+      req['reservatorioSemiElevado.equals'] = this.reservatorioSemiElevado;
+    if (this.conjuntoSanitario && this.conjuntoSanitario != 'null') req['conjuntoSanitario.equals'] = this.conjuntoSanitario;
+    if (this.piaCozinha && this.piaCozinha != 'null') req['piaCozinha.equals'] = this.piaCozinha;
+    if (this.tanqueLavarRoupa && this.tanqueLavarRoupa != 'null') req['tanqueLavarRoupa.equals'] = this.tanqueLavarRoupa;
+    if (this.filtroDomestico && this.filtroDomestico != 'null') req['filtroDomestico.equals'] = this.filtroDomestico;
+    if (this.tanqueSeptico && this.tanqueSeptico != 'null') req['tanqueSeptico.equals'] = this.tanqueSeptico;
+    if (this.sumidouro && this.sumidouro != 'null') req['sumidouro.equals'] = this.sumidouro;
+    if (this.valaInfiltracao && this.valaInfiltracao != 'null') req['valaInfiltracao.equals'] = this.valaInfiltracao;
+    if (this.sistemaReuso && this.sistemaReuso != 'null') req['sistemaReuso.equals'] = this.sistemaReuso;
+    if (this.ligacaoDomiciliarEsgoto && this.ligacaoDomiciliarEsgoto != 'null')
+      req['ligacaoDomiciliarEsgoto.equals'] = this.ligacaoDomiciliarEsgoto;
+    if (this.recipenteResiduosSolidos && this.recipenteResiduosSolidos != 'null')
+      req['recipenteResiduosSolidos.equals'] = this.recipenteResiduosSolidos;
+    if (this.levantamentoConcluido && this.levantamentoConcluido != 'null')
+      req['levantamentoConcluido.equals'] = this.levantamentoConcluido;
+
     this.domicilioService
-      .query({
-        page: this.page - 1,
-        size: this.itemsPerPage,
-        sort: this.sort()
-      })
+      .query(req)
       .subscribe(
         (res: HttpResponse<IDomicilio[]>) => this.paginateDomicilios(res.body, res.headers),
         (res: HttpErrorResponse) => this.onError(res.message)
