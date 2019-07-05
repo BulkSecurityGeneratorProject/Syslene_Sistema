@@ -10,6 +10,141 @@
     </h2>
     <jhi-alert></jhi-alert>
     <br/>
+    <div class="container">
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>Ligação domiciliar de água</label>
+                <select name="necessitaAgua" class="custom-select" [(ngModel)]="necessitaAgua" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Poço</label>
+                <select name="poco" class="custom-select" [(ngModel)]="poco" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Cisterna</label>
+                <select name="cisterna" class="custom-select" [(ngModel)]="cisterna" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Reservatório Elevado</label>
+                <select name="reservatorioElevado" class="custom-select" [(ngModel)]="reservatorioElevado" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>Reservatório SemiElevado</label>
+                <select name="reservatorioElevado" class="custom-select" [(ngModel)]="reservatorioSemiElevado" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Conjunto Sanitário</label>
+                <select name="reservatorioElevado" class="custom-select" [(ngModel)]="conjuntoSanitario" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Pia da Cozinha</label>
+                <select name="reservatorioElevado" class="custom-select" [(ngModel)]="piaCozinha" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Tanque de Lavar Roupa</label>
+                <select name="reservatorioElevado" class="custom-select" [(ngModel)]="tanqueLavarRoupa" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>  
+
+            <div class="form-group col-md-3">
+                <label>Filtro Doméstico</label>
+                <select name="filtroDomestico" class="custom-select" [(ngModel)]="filtroDomestico" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Tanque Séptico</label>
+                <select name="tanqueSeptico" class="custom-select" [(ngModel)]="tanqueSeptico" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Sumidouro</label>
+                <select name="sumidouro" class="custom-select" [(ngModel)]="sumidouro" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Vala de Infiltração</label>
+                <select name="valaInfiltracao" class="custom-select" [(ngModel)]="valaInfiltracao" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>Sistema de Reuso</label>
+                <select name="sistemaReuso" class="custom-select" [(ngModel)]="sistemaReuso" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Ligação Domiciliar de Esgoto</label>
+                <select name="ligacaoDomiciliarEsgoto" class="custom-select" [(ngModel)]="ligacaoDomiciliarEsgoto" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Recipiente de Resíduos Sólidos</label>
+                <select name="recipenteResiduosSolidos" class="custom-select" [(ngModel)]="recipenteResiduosSolidos" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Necessário</option>
+                    <option value="false">Não Necessário</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Levantamento</label>
+                <select name="levantamentoConcluido" class="custom-select" [(ngModel)]="levantamentoConcluido" (change)="loadAll()">
+                    <option value="null"></option>
+                    <option value="true">Completo</option>
+                    <option value="false">Incompleto</option>
+                </select>
+            </div>            
+        </div>    
+    </div>
     <div class="table-responsive" *ngIf="domicilios">
         <table class="table table-striped">
             <thead>
@@ -21,6 +156,12 @@
             <th jhiSortBy="dataCadastro"><span>Data de Alteração</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="userFirstName"><span>Usuário</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="localidade"><span>Localidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomeMorador"><span jhiTranslate="sysleneApp.domicilio.nomeMorador">Nome Morador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataCadastro"><span jhiTranslate="sysleneApp.domicilio.dataCadastro">Data Cadastro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="levantamentoConcluido"><span jhiTranslate="sysleneApp.domicilio.levantamentoConcluido">Levantamento Concluido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userFirstName"><span jhiTranslate="sysleneApp.domicilio.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="localidadeDescricao"><span jhiTranslate="sysleneApp.domicilio.localidade">Localidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>

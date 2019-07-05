@@ -107,12 +107,19 @@
                         <a [routerLink]="['/localidade', domicilio.localidadeId, 'view']">{{domicilio.localidadeDescricao}}</a>
                     </div>
                 </dd>
+<<<<<<< HEAD
                 <dt><span>Localização: </span></dt>
                 <dd>      
                     <!-- this creates a google map on the page with the given lat/lng from -->
                     <!-- the component as the initial center of the map: -->
                     <agm-map [latitude]="domicilio.latitude" [longitude]="domicilio.longitude">
                             <agm-marker [latitude]="domicilio.latitude" [longitude]="domicilio.longitude"></agm-marker>
+=======
+                <dt><span>Localização</span></dt>
+                <dd>
+                    <agm-map [latitude]="51.678418" [longitude]="7.809007">
+                            <agm-marker [latitude]="51.678418" [longitude]="7.809007" ></agm-marker>
+>>>>>>> develop
                     </agm-map>
                 </dd>
             </dl>
