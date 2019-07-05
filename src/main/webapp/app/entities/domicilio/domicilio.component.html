@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="sysleneApp.domicilio.home.title">Domicilios</span>
+        <span>Domicílios</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-domicilio" [routerLink]="['/domicilio/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="sysleneApp.domicilio.home.createLabel">
@@ -149,12 +149,13 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="nomeMorador"><span jhiTranslate="sysleneApp.domicilio.nomeMorador">Nome Morador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="dataCadastro"><span jhiTranslate="sysleneApp.domicilio.dataCadastro">Data Cadastro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="levantamentoConcluido"><span jhiTranslate="sysleneApp.domicilio.levantamentoConcluido">Levantamento Concluido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="userFirstName"><span jhiTranslate="sysleneApp.domicilio.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="localidadeDescricao"><span jhiTranslate="sysleneApp.domicilio.localidade">Localidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomeMorador"><span>Nome do Morador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="endereco"><span>Endereço</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="levantamentoConcluido"><span>Levantamento Concluído</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataCadastro"><span>Data de Alteração</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userFirstName"><span>Usuário</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="localidade"><span>Localidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -162,8 +163,12 @@
             <tr *ngFor="let domicilio of domicilios ;trackBy: trackId">
                 <td><a [routerLink]="['/domicilio', domicilio.id, 'view' ]">{{domicilio.id}}</a></td>
                 <td>{{domicilio.nomeMorador}}</td>
+                <td>{{domicilio.endereco}}</td>
+                <td style="text-align: center;">
+                        <fa-icon [icon]="domicilio.levantamentoConcluido ? 'check' : 'times'" aria-hidden="true" class="{{ domicilio.levantamentoConcluido ? 'text-success' : 'text-danger'}}">
+                        </fa-icon>
+                    </td>
                 <td>{{domicilio.dataCadastro | date:'mediumDate'}}</td>
-                <td>{{domicilio.levantamentoConcluido}}</td>
                 <td>
                     {{domicilio.userFirstName}}
                 </td>
