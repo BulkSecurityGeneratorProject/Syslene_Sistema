@@ -1,4 +1,4 @@
-export * from './domicilio.service';
+export * from '../../services/domicilio.service';
 export * from './domicilio-update.component';
 export * from './domicilio-delete-dialog.component';
 export * from './domicilio-detail.component';

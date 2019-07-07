@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 
 import { SysleneTestModule } from '../../../test.module';
 import { DomicilioUpdateComponent } from 'app/entities/domicilio/domicilio-update.component';
-import { DomicilioService } from 'app/entities/domicilio/domicilio.service';
+import { DomicilioService } from 'app/services/domicilio.service';
 import { Domicilio } from 'app/shared/model/domicilio.model';
 
 describe('Component Tests', () => {

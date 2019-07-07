@@ -6,7 +6,7 @@ import { UserRouteAccessService } from 'app/core';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Domicilio } from 'app/shared/model/domicilio.model';
-import { DomicilioService } from './domicilio.service';
+import { DomicilioService } from '../../services/domicilio.service';
 import { DomicilioComponent } from './domicilio.component';
 import { DomicilioDetailComponent } from './domicilio-detail.component';
 import { DomicilioUpdateComponent } from './domicilio-update.component';

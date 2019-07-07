@@ -9,7 +9,7 @@ import { ILocalidade } from 'app/shared/model/localidade.model';
 import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
-import { LocalidadeService } from './localidade.service';
+import { LocalidadeService } from '../../services/localidade.service';
 
 @Component({
   selector: 'jhi-localidade',

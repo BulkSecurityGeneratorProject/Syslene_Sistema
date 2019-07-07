@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 
 import { SysleneTestModule } from '../../../test.module';
 import { LocalidadeUpdateComponent } from 'app/entities/localidade/localidade-update.component';
-import { LocalidadeService } from 'app/entities/localidade/localidade.service';
+import { LocalidadeService } from 'app/services/localidade.service';
 import { Localidade } from 'app/shared/model/localidade.model';
 
 describe('Component Tests', () => {
