@@ -9,7 +9,9 @@ import { IDomicilio } from 'app/shared/model/domicilio.model';
 import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
-import { DomicilioService } from './domicilio.service';
+import { DomicilioService } from '../../services/domicilio.service';
+import { saveAs } from 'file-saver';
+import { ExcelService } from 'app/services/excel.service';
 
 @Component({
   selector: 'jhi-domicilio',
@@ -54,7 +56,8 @@ export class DomicilioComponent implements OnInit, OnDestroy {
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected eventManager: JhiEventManager
+    protected eventManager: JhiEventManager,
+    private excelService: ExcelService
   ) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -98,6 +101,17 @@ export class DomicilioComponent implements OnInit, OnDestroy {
         (res: HttpResponse<IDomicilio[]>) => this.paginateDomicilios(res.body, res.headers),
         (res: HttpErrorResponse) => this.onError(res.message)
       );
+  }
+
+  exportaExcel() {
+    var req = {
+      page: this.page - 1,
+      size: this.itemsPerPage
+    };
+    this.domicilioService.query(req).subscribe(dados => {
+      console.log(dados);
+      saveAs(dados, 'domicilios.pdf');
+    });
   }
 
   loadPage(page: number) {
@@ -166,5 +180,9 @@ export class DomicilioComponent implements OnInit, OnDestroy {
 
   protected onError(errorMessage: string) {
     this.jhiAlertService.error(errorMessage, null, null);
+  }
+
+  exportAsXLSX(): void {
+    this.excelService.exportAsExcelFile(this.domicilios, 'sample');
   }
 }

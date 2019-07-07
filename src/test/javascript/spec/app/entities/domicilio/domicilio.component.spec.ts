@@ -6,7 +6,7 @@ import { ActivatedRoute, Data } from '@angular/router';
 
 import { SysleneTestModule } from '../../../test.module';
 import { DomicilioComponent } from 'app/entities/domicilio/domicilio.component';
-import { DomicilioService } from 'app/entities/domicilio/domicilio.service';
+import { DomicilioService } from 'app/services/domicilio.service';
 import { Domicilio } from 'app/shared/model/domicilio.model';
 
 describe('Component Tests', () => {

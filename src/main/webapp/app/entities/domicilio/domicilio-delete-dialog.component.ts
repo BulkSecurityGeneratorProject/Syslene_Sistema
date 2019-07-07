@@ -5,7 +5,7 @@ import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstra
 import { JhiEventManager } from 'ng-jhipster';
 
 import { IDomicilio } from 'app/shared/model/domicilio.model';
-import { DomicilioService } from './domicilio.service';
+import { DomicilioService } from '../../services/domicilio.service';
 
 @Component({
   selector: 'jhi-domicilio-delete-dialog',

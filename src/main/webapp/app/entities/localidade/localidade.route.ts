@@ -6,7 +6,7 @@ import { UserRouteAccessService } from 'app/core';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Localidade } from 'app/shared/model/localidade.model';
-import { LocalidadeService } from './localidade.service';
+import { LocalidadeService } from '../../services/localidade.service';
 import { LocalidadeComponent } from './localidade.component';
 import { LocalidadeDetailComponent } from './localidade-detail.component';
 import { LocalidadeUpdateComponent } from './localidade-update.component';

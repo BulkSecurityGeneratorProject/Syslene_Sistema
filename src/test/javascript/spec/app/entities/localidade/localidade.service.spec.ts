@@ -6,7 +6,7 @@ import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
-import { LocalidadeService } from 'app/entities/localidade/localidade.service';
+import { LocalidadeService } from 'app/services/localidade.service';
 import { ILocalidade, Localidade } from 'app/shared/model/localidade.model';
 
 describe('Service Tests', () => {
