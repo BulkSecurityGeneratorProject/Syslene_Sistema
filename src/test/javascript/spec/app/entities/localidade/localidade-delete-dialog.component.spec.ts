@@ -6,7 +6,7 @@ import { JhiEventManager } from 'ng-jhipster';
 
 import { SysleneTestModule } from '../../../test.module';
 import { LocalidadeDeleteDialogComponent } from 'app/entities/localidade/localidade-delete-dialog.component';
-import { LocalidadeService } from 'app/entities/localidade/localidade.service';
+import { LocalidadeService } from 'app/services/localidade.service';
 
 describe('Component Tests', () => {
   describe('Localidade Management Delete Component', () => {

@@ -7,7 +7,7 @@ import { filter, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { JhiAlertService } from 'ng-jhipster';
 import { ILocalidade, Localidade } from 'app/shared/model/localidade.model';
-import { LocalidadeService } from './localidade.service';
+import { LocalidadeService } from '../../services/localidade.service';
 import { IUser, UserService } from 'app/core';
 
 @Component({

@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SysleneSharedLibsModule, SysleneSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective } from './';
 import { AgmCoreModule } from '@agm/core';
+import { ExcelService } from 'app/services/excel.service';
 
 @NgModule({
   imports: [

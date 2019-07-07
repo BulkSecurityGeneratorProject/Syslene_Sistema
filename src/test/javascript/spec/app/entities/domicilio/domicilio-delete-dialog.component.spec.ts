@@ -6,7 +6,7 @@ import { JhiEventManager } from 'ng-jhipster';
 
 import { SysleneTestModule } from '../../../test.module';
 import { DomicilioDeleteDialogComponent } from 'app/entities/domicilio/domicilio-delete-dialog.component';
-import { DomicilioService } from 'app/entities/domicilio/domicilio.service';
+import { DomicilioService } from 'app/services/domicilio.service';
 
 describe('Component Tests', () => {
   describe('Domicilio Management Delete Component', () => {
