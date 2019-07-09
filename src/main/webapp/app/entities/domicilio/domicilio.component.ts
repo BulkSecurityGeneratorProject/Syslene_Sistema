@@ -183,6 +183,6 @@ export class DomicilioComponent implements OnInit, OnDestroy {
   }
 
   exportAsXLSX(): void {
-    this.excelService.exportAsExcelFile(this.domicilios, 'sample');
+    this.excelService.exportAsExcelFile(this.domicilios, 'syslene');
   }
 }

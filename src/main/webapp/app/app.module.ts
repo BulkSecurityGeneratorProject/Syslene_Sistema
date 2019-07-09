@@ -12,7 +12,7 @@ import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interc
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
 import { SysleneSharedModule } from 'app/shared';
-import { SysleneCoreModule } from 'app/core';
+import { SysleneCoreModule, AccountService } from 'app/core';
 import { SysleneAppRoutingModule } from './app-routing.module';
 import { SysleneHomeModule } from './home/home.module';
 import { SysleneAccountModule } from './account/account.module';
@@ -42,6 +42,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   providers: [
+    AccountService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
