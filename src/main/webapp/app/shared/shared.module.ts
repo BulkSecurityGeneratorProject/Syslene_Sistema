@@ -8,7 +8,7 @@ import { ExcelService } from 'app/services/excel.service';
     SysleneSharedLibsModule,
     SysleneSharedCommonModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBTZAhRjugseYZqEo78SAZ_3_HtmJVQ1a8'
+      apiKey: 'AIzaSyAcPUnsuBcJTWz0An8GXazaUmz0DKxwxmY'
     })
   ],
   declarations: [JhiLoginModalComponent, HasAnyAuthorityDirective],

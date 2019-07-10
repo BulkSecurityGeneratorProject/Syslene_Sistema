@@ -1,122 +1,146 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-12">
         <div *ngIf="domicilio">
             <h2><span jhiTranslate="sysleneApp.domicilio.detail.title">Domicilio</span> {{domicilio.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="sysleneApp.domicilio.nomeMorador">Nome Morador</span></dt>
-                <dd>
-                    <span>{{domicilio.nomeMorador}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.endereco">Endereco</span></dt>
-                <dd>
-                    <span>{{domicilio.endereco}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.latitude">Latitude</span></dt>
-                <dd>
-                    <span>{{domicilio.latitude}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.longitude">Longitude</span></dt>
-                <dd>
-                    <span>{{domicilio.longitude}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.numeroHabitantes">Numero Habitantes</span></dt>
-                <dd>
-                    <span>{{domicilio.numeroHabitantes}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.ligacaoDomiciliarAgua">Ligacao Domiciliar Agua</span></dt>
-                <dd>
-                    <span>{{domicilio.ligacaoDomiciliarAgua}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.poco">Poco</span></dt>
-                <dd>
-                    <span>{{domicilio.poco}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.cisterna">Cisterna</span></dt>
-                <dd>
-                    <span>{{domicilio.cisterna}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.reservatorioElevado">Reservatorio Elevado</span></dt>
-                <dd>
-                    <span>{{domicilio.reservatorioElevado}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.reservatorioSemiElevado">Reservatorio Semi Elevado</span></dt>
-                <dd>
-                    <span>{{domicilio.reservatorioSemiElevado}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.conjuntoSanitario">Conjunto Sanitario</span></dt>
-                <dd>
-                    <span>{{domicilio.conjuntoSanitario}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.piaCozinha">Pia Cozinha</span></dt>
-                <dd>
-                    <span>{{domicilio.piaCozinha}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.tanqueLavarRoupa">Tanque Lavar Roupa</span></dt>
-                <dd>
-                    <span>{{domicilio.tanqueLavarRoupa}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.filtroDomestico">Filtro Domestico</span></dt>
-                <dd>
-                    <span>{{domicilio.filtroDomestico}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.tanqueSeptico">Tanque Septico</span></dt>
-                <dd>
-                    <span>{{domicilio.tanqueSeptico}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.sumidouro">Sumidouro</span></dt>
-                <dd>
-                    <span>{{domicilio.sumidouro}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.valaInfiltracao">Vala Infiltracao</span></dt>
-                <dd>
-                    <span>{{domicilio.valaInfiltracao}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.sistemaReuso">Sistema Reuso</span></dt>
-                <dd>
-                    <span>{{domicilio.sistemaReuso}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.ligacaoDomiciliarEsgoto">Ligacao Domiciliar Esgoto</span></dt>
-                <dd>
-                    <span>{{domicilio.ligacaoDomiciliarEsgoto}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.recipenteResiduosSolidos">Recipente Residuos Solidos</span></dt>
-                <dd>
-                    <span>{{domicilio.recipenteResiduosSolidos}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.dataCadastro">Data Cadastro</span></dt>
-                <dd>
-                    <span>{{domicilio.dataCadastro}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.levantamentoConcluido">Levantamento Concluido</span></dt>
-                <dd>
-                    <span>{{domicilio.levantamentoConcluido}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.dataAlteracao">Data Alteracao</span></dt>
-                <dd>
-                    <span>{{domicilio.dataAlteracao}}</span>
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.user">User</span></dt>
-                <dd>
-                    {{domicilio.userFirstName}}
-                </dd>
-                <dt><span jhiTranslate="sysleneApp.domicilio.localidade">Localidade</span></dt>
-                <dd>
-                    <div *ngIf="domicilio.localidadeId">
-                        <a [routerLink]="['/localidade', domicilio.localidadeId, 'view']">{{domicilio.localidadeDescricao}}</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                            <label class="form-control-label" for="field_nomeMorador">Nome do Morador</label>
+                            <input type="text" class="form-control" name="nomeMorador" id="field_nomeMorador"
+                                   [(ngModel)]="domicilio.nomeMorador" readonly/>
                     </div>
-                </dd>
+                    <div class="col-md-5">
+                            <label class="form-control-label" for="field_endereco">Endereço</label>
+                            <input type="text" class="form-control" name="endereco" id="field_endereco"
+                                   [(ngModel)]="domicilio.endereco" readonly/>
+                    </div>
+                    <div class="col-md-3">
+                            <label class="form-control-label" for="field_numeroMoradores">Número de Moradores</label>
+                            <input type="text" class="form-control"  id="field_numeroMoradores"
+                                   [(ngModel)]="domicilio.numeroHabitantes" readonly/>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                                <label class="form-control-label">Data de Cadastro</label>
+                                <input type="text" class="form-control"
+                                       [(ngModel)]="domicilio.dataCadastro" readonly/>
+                        </div>
+                        <div class="col-md-6">
+                                <label class="form-control-label">Data de Alteração</label>
+                                <input type="text" class="form-control"
+                                       [(ngModel)]="domicilio.dataAlteracao" readonly/>
+                        </div>
+                    
+                </div>
+                <div class="row">
+                        <div class="col-md-4">
+                                <label class="form-control-label">Cadastrado por</label>
+                                <input type="text" class="form-control"
+                                       [(ngModel)]="domicilio.userFirstName" readonly/>
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label">Status do Levantamento</label>
+                                <input type="text" class="form-control"
+                                       [(ngModel)]="domicilio.levantamentoConcluido" readonly/>
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label">Localidade</label>
+                                <input type="text" class="form-control"
+                                       [(ngModel)]="domicilio.Localidade" readonly/>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-4">
+                                <label class="form-control-label">Ligação domiciliar de Água</label>
+                                <span class="badge" [ngClass]=" domicilio.ligacaoDomiciliarAgua ? 'badge-danger' : 'badge-success'">{{ domicilio.ligacaoDomiciliarAgua ? 'Necessita' : 'Não Necessita' }}</span>
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label">Poço</label>
+                                <span class="badge" [ngClass]=" domicilio.poco ? 'badge-danger' : 'badge-success'">{{ domicilio.poco ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label">Cisterna</label>
+                                <span class="badge" [ngClass]=" domicilio.cisterna ? 'badge-danger' : 'badge-success'">{{ domicilio.cisterna ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-4">
+                                <label class="form-control-label">Reservatório Elevado</label>
+                                <span class="badge" [ngClass]=" domicilio.reservatorioElevado ? 'badge-danger' : 'badge-success'">{{ domicilio.reservatorioElevado ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label">Reservatório Semi Elevado</label>
+                                <span class="badge" [ngClass]=" domicilio.reservatorioSemiElevado ? 'badge-danger' : 'badge-success'">{{ domicilio.reservatorioSemiElevado ? 'Necessita' : 'Não Necessita' }}</span>
+
+                                       
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label">Conjunto Sanitário</label>
+                                <span class="badge" [ngClass]=" domicilio.conjuntoSanitario ? 'badge-danger' : 'badge-success'">{{ domicilio.conjuntoSanitario ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-4">
+                                <label class="form-control-label">Pia na Cozinha</label>
+                                <span class="badge" [ngClass]=" domicilio.piaCozinha ? 'badge-danger' : 'badge-success'">{{ domicilio.piaCozinha ? 'Necessita' : 'Não Necessita' }}</span>
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label"></label>Tanque para Lavar Roupa</label>
+                                <span class="badge" [ngClass]=" domicilio.tanqueLavarRoupa ? 'badge-danger' : 'badge-success'">{{ domicilio.tanqueLavarRoupa ? 'Necessita' : 'Não Necessita' }}</span>
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label">Filtro Doméstico</label>
+                                <span class="badge" [ngClass]=" domicilio.filtroDomestico ? 'badge-danger' : 'badge-success'">{{ domicilio.filtroDomestico ? 'Necessita' : 'Não Necessita' }}</span>        
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-4">
+                                <label class="form-control-label">Tanque Séptico</label>
+                                <span class="badge" [ngClass]=" domicilio.tanqueSeptico ? 'badge-danger' : 'badge-success'">{{ domicilio.tanqueSeptico ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label"></label>Sumidouro</label>
+                                <span class="badge" [ngClass]=" domicilio.sumidouro ? 'badge-danger' : 'badge-success'">{{ domicilio.sumidouro ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label">Vala de Infiltração</label>
+                                <span class="badge" [ngClass]=" domicilio.valaInfiltracao ? 'badge-danger' : 'badge-success'">{{ domicilio.valaInfiltracao ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-4">
+                                <label class="form-control-label">Sistema de Reuso</label>
+                                <span class="badge" [ngClass]=" domicilio.sistemaReuso ? 'badge-danger' : 'badge-success'">{{ domicilio.sistemaReuso ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label"></label>Ligação Domiciliar de Esgoto</label>
+                                <span class="badge" [ngClass]=" domicilio.ligacaoDomiciliarEsgoto ? 'badge-danger' : 'badge-success'">{{ domicilio.ligacaoDomiciliarEsgoto ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                        <div class="col-md-4">
+                                <label class="form-control-label">Recipiente de Resíduos Sólidos</label>
+                                <span class="badge" [ngClass]=" domicilio.recipenteResiduosSolidos ? 'badge-danger' : 'badge-success'">{{ domicilio.recipenteResiduosSolidos ? 'Necessita' : 'Não Necessita' }}</span>
+
+                        </div>
+                </div>
+            </div>
                 <dt><span>Localização: </span></dt>
                 <dd>      
                     <!-- this creates a google map on the page with the given lat/lng from -->
                     <!-- the component as the initial center of the map: -->
-                    <agm-map [latitude]="domicilio.latitude" [longitude]="domicilio.longitude">
-                            <agm-marker [latitude]="domicilio.latitude" [longitude]="domicilio.longitude"></agm-marker>
-                <dt><span>Localização</span></dt>
-                <dd>
-                    <agm-map [latitude]="51.678418" [longitude]="7.809007">
-                            <agm-marker [latitude]="51.678418" [longitude]="7.809007" ></agm-marker>
+                    <agm-map [latitude]="toNumber(domicilio.latitude)" [longitude]="toNumber(domicilio.longitude)">
+                            <agm-marker [latitude]="toNumber(domicilio.latitude)" [longitude]="toNumber(domicilio.longitude)"></agm-marker>
                     </agm-map>
                 </dd>
             </dl>
