@@ -2,13 +2,13 @@
     <div class="col-md-4 imagem banner lado esquerdo"></div>
     <div class="col-md-8 lado direito d-flex align-items-center justify-content-center">
         <div class="row justify-content-center form login">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="alert alert-danger" *ngIf="authenticationError" jhiTranslate="login.messages.error.authentication">
                     <strong>Failed to sign in!</strong> Please check your credentials and try again.
                 </div>
             </div>
-            <div class="col-md-8">
-                <h3 class="titulo home">Seja Bem Vindo(a) à Dondoka !</h3>
+            <div class="col-md-12">
+                <h3 class="titulo home">Seja Bem Vindo(a) ao Syslene !</h3>
                 <p>Informe suas credenciais abaixo</p>
                 <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
                     <div class="form-group">
@@ -32,9 +32,6 @@
                         <a class="alert-link resetasenha" (click)="requestResetPassword()">Esqueci Minha Senha</a>
                     </div>
                 </form>
-                <div>
-                    <label class="copyright">Todos os Direitos Reservados © 2019 Dondoka. </label>
-                </div>
             </div>
         </div>
     </div>
