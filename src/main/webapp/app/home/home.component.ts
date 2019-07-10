@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { LoginModalService, AccountService, Account } from 'app/core';
+import { LoginModalService, AccountService, Account, LoginService, StateStorageService } from 'app/core';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-home',
@@ -10,13 +11,24 @@ import { LoginModalService, AccountService, Account } from 'app/core';
   styleUrls: ['home.scss']
 })
 export class HomeComponent implements OnInit {
+  authenticationError: boolean;
   account: Account;
-  modalRef: NgbModalRef;
+  loginForm = this.fb.group({
+    username: [''],
+    password: [''],
+    rememberMe: [true]
+  });
+  view: any[] = [700, 400];
+  options: Object;
 
   constructor(
     private accountService: AccountService,
     private loginModalService: LoginModalService,
-    private eventManager: JhiEventManager
+    private eventManager: JhiEventManager,
+    private fb: FormBuilder,
+    private router: Router,
+    private loginService: LoginService,
+    private stateStorageService: StateStorageService
   ) {}
 
   ngOnInit() {
@@ -26,10 +38,20 @@ export class HomeComponent implements OnInit {
     this.registerAuthenticationSuccess();
   }
 
+  onSelect(event) {
+    console.log(event);
+  }
+
   registerAuthenticationSuccess() {
     this.eventManager.subscribe('authenticationSuccess', message => {
       this.accountService.identity().then(account => {
         this.account = account;
+
+        // if(this.accountService.isAuthenticated()) {
+        //   alert('ok');
+        // } else {
+        //   alert('não autentic');
+        // }
       });
     });
   }
@@ -39,6 +61,38 @@ export class HomeComponent implements OnInit {
   }
 
   login() {
-    this.modalRef = this.loginModalService.open();
+    console.log(this.loginForm.get('username').value);
+    console.log(this.loginForm.get('password').value);
+    console.log(this.loginForm.get('rememberMe').value);
+    this.loginService
+      .login({
+        username: this.loginForm.get('username').value,
+        password: this.loginForm.get('password').value,
+        rememberMe: this.loginForm.get('rememberMe').value
+      })
+      .then(() => {
+        this.authenticationError = false;
+        this.router.navigate(['/']);
+        this.eventManager.broadcast({
+          name: 'authenticationSuccess',
+          content: 'Sending Authentication Success'
+        });
+        const redirect = this.stateStorageService.getUrl();
+        if (redirect) {
+          this.stateStorageService.storeUrl(null);
+          this.router.navigateByUrl(redirect);
+        }
+      })
+      .catch(() => {
+        this.authenticationError = true;
+      });
+  }
+
+  requestResetPassword() {
+    this.router.navigate(['/reset', 'request']);
+  }
+
+  register() {
+    this.router.navigate(['/register']);
   }
 }

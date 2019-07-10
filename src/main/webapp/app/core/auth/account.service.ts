@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { Account } from 'app/core/user/account.model';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AccountService {
   private userIdentity: any;
   private authenticated = false;

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, NavigationEnd, NavigationError } from '@angular/router';
 
-import { JhiLanguageHelper } from 'app/core';
+import { JhiLanguageHelper, AccountService } from 'app/core';
 
 @Component({
   selector: 'jhi-main',
   templateUrl: './main.component.html'
 })
 export class JhiMainComponent implements OnInit {
-  constructor(private jhiLanguageHelper: JhiLanguageHelper, private router: Router) {}
+  constructor(private jhiLanguageHelper: JhiLanguageHelper, private router: Router, private accountService: AccountService) {}
 
   private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {
     let title: string = routeSnapshot.data && routeSnapshot.data['pageTitle'] ? routeSnapshot.data['pageTitle'] : 'sysleneApp';
@@ -27,5 +27,9 @@ export class JhiMainComponent implements OnInit {
         this.router.navigate(['/404']);
       }
     });
+  }
+
+  isAuthenticated() {
+    return this.accountService.isAuthenticated();
   }
 }

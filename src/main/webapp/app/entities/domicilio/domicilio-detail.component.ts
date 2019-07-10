@@ -22,4 +22,8 @@ export class DomicilioDetailComponent implements OnInit {
   previousState() {
     window.history.back();
   }
+
+  toNumber(numberString) {
+    return parseInt(numberString);
+  }
 }

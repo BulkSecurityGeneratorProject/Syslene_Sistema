@@ -21,3 +21,75 @@ Main page styles
     background-size: contain;
   }
 }
+
+/**/
+
+.row.home.component {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+.area.cadastro {
+  padding: 3em;
+  align-items: baseline;
+}
+
+.botao.cadastro {
+  border: 1px solid #d5dcec;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+  margin-left: 20px;
+  border-radius: 50px;
+}
+
+p.label.conta {
+  margin-top: inherit;
+}
+
+.copyright {
+  margin-top: 1em;
+}
+
+.copyright label {
+  font-size: 10px !important;
+}
+
+.lembrar_me {
+  margin-bottom: 1em;
+}
+
+.titulo.home {
+  font-size: 1.56rem;
+}
+
+/* ==============================  VARIÁVEIS PARA PERSONALIZAÇÃO ============================== */
+
+$corFundoEspacoEsquerdo: #eff3f5;
+$corFundoEspacoDireito: white;
+
+/* ========================================================================== */
+
+.imagem.banner.lado.esquerdo {
+  background-color: $corFundoEspacoEsquerdo !important;
+  height: 100vh !important;
+}
+.lado.direito {
+  background-color: $corFundoEspacoDireito !important;
+  height: 100vh !important;
+}
+
+.botoes.acao {
+  margin-top: 1em !important;
+}
+
+.copyright {
+  font-size: 0.7em;
+  margin-top: 1em;
+}
+
+.resetasenha {
+  margin-left: 1em;
+  font-size: 0.8em;
+}
