@@ -15,12 +15,12 @@
                 <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
                 <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                <th jhiSortBy="descricao"><span jhiTranslate="sysleneApp.localidade.descricao">Descricao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                <th jhiSortBy="abastecimentoAgua"><span jhiTranslate="sysleneApp.localidade.abastecimentoAgua">Abastecimento Agua</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                <th jhiSortBy="esgotoSanitario"><span jhiTranslate="sysleneApp.localidade.esgotoSanitario">Esgoto Sanitario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                <th jhiSortBy="coletaResiduos"><span jhiTranslate="sysleneApp.localidade.coletaResiduos">Coleta Residuos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                <th jhiSortBy="dataAlteracao"><span jhiTranslate="sysleneApp.localidade.dataAlteracao">Data Alteracao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                <th jhiSortBy="userFirstName"><span jhiTranslate="sysleneApp.localidade.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="descricao"><span>Descrição</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="abastecimentoAgua"><span>Abastecimento de Água</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="esgotoSanitario"><span>Esgoto Sanitário</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="coletaResiduos"><span>Coleta de Resíduos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="dataAlteracao"><span>Data de Cadastro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="userFirstName"><span>Cadastrado Por</span> <fa-icon [icon]="'sort'"></fa-icon></th>
                 <th></th>
                 </tr>
                 </thead>
@@ -31,7 +31,7 @@
                     <td>{{localidade.abastecimentoAgua}}</td>
                     <td>{{localidade.esgotoSanitario}}</td>
                     <td>{{localidade.coletaResiduos}}</td>
-                    <td>{{localidade.dataAlteracao | date:'mediumDate'}}</td>
+                    <td>{{localidade.dataCadastro | date:'mediumDate'}}</td>
                     <td>
                         {{localidade.userFirstName}}
                     </td>
