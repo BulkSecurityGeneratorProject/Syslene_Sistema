@@ -25,13 +25,11 @@
                 <div class="row">
                         <div class="col-md-6">
                                 <label class="form-control-label">Data de Cadastro</label>
-                                <input type="text" class="form-control"
-                                       [(ngModel)]="domicilio.dataCadastro" readonly/>
+                                <p class="form-control">{{ domicilio.dataCadastro | date:'mediumDate' }}</p>
                         </div>
                         <div class="col-md-6">
                                 <label class="form-control-label">Data de Alteração</label>
-                                <input type="text" class="form-control"
-                                       [(ngModel)]="domicilio.dataAlteracao" readonly/>
+                                <p class="form-control">{{ domicilio.dataAlteracao | date:'mediumDate' }}</p>
                         </div>
                     
                 </div>
@@ -43,8 +41,8 @@
                         </div>
                         <div class="col-md-4">
                                 <label class="form-control-label">Status do Levantamento</label>
-                                <input type="text" class="form-control"
-                                       [(ngModel)]="domicilio.levantamentoConcluido" readonly/>
+                                <p class="form-control">{{ domicilio.levantamentoConcluido ? 'Concluído' : 'Não Concluído' }}</p>
+                                
                         </div>
                         <div class="col-md-4">
                                 <label class="form-control-label">Localidade</label>
@@ -129,32 +127,26 @@
 
                         </div>
                         <div class="col-md-4">
-                                <label class="form-control-label">Recipiente de Resíduos Sólidos</label>
                                 <span class="badge" [ngClass]=" domicilio.recipenteResiduosSolidos ? 'badge-danger' : 'badge-success'">{{ domicilio.recipenteResiduosSolidos ? 'Necessita' : 'Não Necessita' }}</span>
-
+                        </div>
+                        <div class="col-md-12">
+                                <label class="form-control-label">Localização:</label>
+                                <agm-map [latitude]="toNumber(domicilio.latitude)" [longitude]="toNumber(domicilio.longitude)">
+                                        <agm-marker [latitude]="toNumber(domicilio.latitude)" [longitude]="toNumber(domicilio.longitude)"></agm-marker>
+                                </agm-map>
                         </div>
                 </div>
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+                <button type="button"
+                        [routerLink]="['/domicilio', domicilio.id, 'edit']"
+                        class="btn btn-primary">
+                        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
             </div>
-                <dt><span>Localização: </span></dt>
-                <dd>      
-                    <!-- this creates a google map on the page with the given lat/lng from -->
-                    <!-- the component as the initial center of the map: -->
-                    <agm-map [latitude]="toNumber(domicilio.latitude)" [longitude]="toNumber(domicilio.longitude)">
-                            <agm-marker [latitude]="toNumber(domicilio.latitude)" [longitude]="toNumber(domicilio.longitude)"></agm-marker>
-                    </agm-map>
-                </dd>
-            </dl>
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
-
-            <button type="button"
-                    [routerLink]="['/domicilio', domicilio.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
         </div>
     </div>
 </div>

@@ -8,12 +8,6 @@
                     Exportar Para Excel
                 </span>
             </button>
-            <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-domicilio" [routerLink]="['/domicilio/new']">
-                <fa-icon [icon]="'plus'"></fa-icon>
-                <span  jhiTranslate="sysleneApp.domicilio.home.createLabel">
-                Create new Domicilio
-                </span>
-            </button>
         </div>
     </h2>
     <jhi-alert></jhi-alert>
@@ -150,75 +144,77 @@
                     <option value="true">Completo</option>
                     <option value="false">Incompleto</option>
                 </select>
-            </div>            
+            </div>  
+            <div class="col-md-12">
+                <div class="table-responsive" *ngIf="domicilios">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                            <th jhiSortBy="nomeMorador"><span>Nome do Morador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                            <th jhiSortBy="endereco"><span>Endereço</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                            <th jhiSortBy="levantamentoConcluido"><span>Levantamento Concluído</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                            <th jhiSortBy="dataCadastro"><span>Data de Alteração</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                            <th jhiSortBy="userFirstName"><span>Usuário</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                            <th jhiSortBy="localidade"><span>Localidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                            <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let domicilio of domicilios ;trackBy: trackId">
+                                <td><a [routerLink]="['/domicilio', domicilio.id, 'view' ]">{{domicilio.id}}</a></td>
+                                <td>{{domicilio.nomeMorador}}</td>
+                                <td>{{domicilio.endereco}}</td>
+                                <td style="text-align: center;">
+                                        <fa-icon [icon]="domicilio.levantamentoConcluido ? 'check' : 'times'" aria-hidden="true" class="{{ domicilio.levantamentoConcluido ? 'text-success' : 'text-danger'}}">
+                                        </fa-icon>
+                                    </td>
+                                <td>{{domicilio.dataCadastro | date:'mediumDate'}}</td>
+                                <td>
+                                    {{domicilio.userFirstName}}
+                                </td>
+                                <td>
+                                    <div *ngIf="domicilio.localidadeId">
+                                        <a [routerLink]="['../localidade', domicilio.localidadeId , 'view' ]" >{{domicilio.localidadeDescricao}}</a>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button type="submit"
+                                                [routerLink]="['/domicilio', domicilio.id, 'view' ]"
+                                                class="btn btn-info btn-sm">
+                                            <fa-icon [icon]="'eye'"></fa-icon>
+                                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                        </button>
+                                        <button type="submit"
+                                                [routerLink]="['/domicilio', domicilio.id, 'edit']"
+                                                class="btn btn-primary btn-sm">
+                                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                        </button>
+                                        <button type="submit"
+                                                [routerLink]="['/', 'domicilio', { outlets: { popup: domicilio.id + '/delete'} }]"
+                                                replaceUrl="true"
+                                                queryParamsHandling="merge"
+                                                class="btn btn-danger btn-sm">
+                                            <fa-icon [icon]="'times'"></fa-icon>
+                                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div *ngIf="domicilios && domicilios.length">
+                        <div class="row justify-content-center">
+                            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+                        </div>
+                        <div class="row justify-content-center">
+                            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+                        </div>
+                    </div>
+            </div>          
         </div>    
-    </div>
-    <div class="table-responsive" *ngIf="domicilios">
-        <table class="table table-striped">
-            <thead>
-            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="nomeMorador"><span>Nome do Morador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="endereco"><span>Endereço</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="levantamentoConcluido"><span>Levantamento Concluído</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="dataCadastro"><span>Data de Alteração</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="userFirstName"><span>Usuário</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="localidade"><span>Localidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let domicilio of domicilios ;trackBy: trackId">
-                <td><a [routerLink]="['/domicilio', domicilio.id, 'view' ]">{{domicilio.id}}</a></td>
-                <td>{{domicilio.nomeMorador}}</td>
-                <td>{{domicilio.endereco}}</td>
-                <td style="text-align: center;">
-                        <fa-icon [icon]="domicilio.levantamentoConcluido ? 'check' : 'times'" aria-hidden="true" class="{{ domicilio.levantamentoConcluido ? 'text-success' : 'text-danger'}}">
-                        </fa-icon>
-                    </td>
-                <td>{{domicilio.dataCadastro | date:'mediumDate'}}</td>
-                <td>
-                    {{domicilio.userFirstName}}
-                </td>
-                <td>
-                    <div *ngIf="domicilio.localidadeId">
-                        <a [routerLink]="['../localidade', domicilio.localidadeId , 'view' ]" >{{domicilio.localidadeDescricao}}</a>
-                    </div>
-                </td>
-                <td class="text-right">
-                    <div class="btn-group">
-                        <button type="submit"
-                                [routerLink]="['/domicilio', domicilio.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/domicilio', domicilio.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'domicilio', { outlets: { popup: domicilio.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div *ngIf="domicilios && domicilios.length">
-        <div class="row justify-content-center">
-            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
-        </div>
-        <div class="row justify-content-center">
-            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
-        </div>
     </div>
 </div>

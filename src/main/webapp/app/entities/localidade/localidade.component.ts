@@ -13,7 +13,8 @@ import { LocalidadeService } from '../../services/localidade.service';
 
 @Component({
   selector: 'jhi-localidade',
-  templateUrl: './localidade.component.html'
+  templateUrl: './localidade.component.html',
+  styleUrls: ['./localidade.component.scss']
 })
 export class LocalidadeComponent implements OnInit, OnDestroy {
   currentAccount: any;

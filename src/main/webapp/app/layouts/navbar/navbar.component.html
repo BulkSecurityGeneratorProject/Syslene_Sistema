@@ -1,7 +1,6 @@
 <nav class="navbar navbar-dark navbar-expand-md bg-dark">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
-        <span class="logo-img"></span>
-        <span jhiTranslate="global.title" class="navbar-title">Syslene</span> <span class="navbar-version">{{version}}</span>
+        <span jhiTranslate="global.title" class="navbar-title">Syslene</span>
     </a>
     <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
         <fa-icon icon="bars"></fa-icon>
@@ -36,7 +35,7 @@
                     <li>
                         <a class="dropdown-item" routerLink="domicilio" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.domicilio">Domicilio</span>
+                            <span>Domicílio</span>
                         </a>
                     </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->

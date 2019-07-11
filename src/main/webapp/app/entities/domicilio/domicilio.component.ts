@@ -15,7 +15,8 @@ import { ExcelService } from 'app/services/excel.service';
 
 @Component({
   selector: 'jhi-domicilio',
-  templateUrl: './domicilio.component.html'
+  templateUrl: './domicilio.component.html',
+  styleUrls: ['./domicilio.component.scss']
 })
 export class DomicilioComponent implements OnInit, OnDestroy {
   currentAccount: any;

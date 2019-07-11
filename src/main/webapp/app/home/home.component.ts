@@ -61,9 +61,6 @@ export class HomeComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.get('username').value);
-    console.log(this.loginForm.get('password').value);
-    console.log(this.loginForm.get('rememberMe').value);
     this.loginService
       .login({
         username: this.loginForm.get('username').value,
@@ -72,7 +69,7 @@ export class HomeComponent implements OnInit {
       })
       .then(() => {
         this.authenticationError = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/domicilio']);
         this.eventManager.broadcast({
           name: 'authenticationSuccess',
           content: 'Sending Authentication Success'
