@@ -49,6 +49,13 @@ export class LocalidadeService {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  count(): Promise<any> {
+    return this.http
+      .get(`${this.resourceUrl}/count`)
+      .toPromise()
+      .then(response => response);
+  }
+
   protected convertDateFromClient(localidade: ILocalidade): ILocalidade {
     const copy: ILocalidade = Object.assign({}, localidade, {
       dataAlteracao:

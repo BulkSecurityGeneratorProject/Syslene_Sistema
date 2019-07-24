@@ -37,3 +37,40 @@
     </div>
 </div>
 
+<div *jhiHasAnyAuthority="'ROLE_ADMIN'">
+    <div class="container">
+        <div class="row quadroGeral">
+        
+            <div class="col-md-6">
+                <div class="card mb-12" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <fa-icon icon="building" class="icone dashboard"></fa-icon>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ totalLocalidades }} Localidades</h5>
+                                <button type="button" class="btn btn-primary" routerLink="/localidade">Ver Localidades</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-12" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <fa-icon icon="user-friends" class="icone dashboard"></fa-icon>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ totalDomicilios }} Domicílios</h5>
+                                <button type="button" class="btn btn-primary" routerLink="/domicilio">Ver Domicílios</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

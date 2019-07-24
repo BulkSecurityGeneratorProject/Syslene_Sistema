@@ -4,6 +4,8 @@ import { JhiEventManager } from 'ng-jhipster';
 import { LoginModalService, AccountService, Account, LoginService, StateStorageService } from 'app/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LocalidadeService } from 'app/entities/localidade';
+import { DomicilioService } from 'app/entities/domicilio';
 
 @Component({
   selector: 'jhi-home',
@@ -20,6 +22,8 @@ export class HomeComponent implements OnInit {
   });
   view: any[] = [700, 400];
   options: Object;
+  totalLocalidades = 0;
+  totalDomicilios = 0;
 
   constructor(
     private accountService: AccountService,
@@ -28,7 +32,9 @@ export class HomeComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private loginService: LoginService,
-    private stateStorageService: StateStorageService
+    private stateStorageService: StateStorageService,
+    private localidadeService: LocalidadeService,
+    private domicilioService: DomicilioService
   ) {}
 
   ngOnInit() {
@@ -36,6 +42,8 @@ export class HomeComponent implements OnInit {
       this.account = account;
     });
     this.registerAuthenticationSuccess();
+    this.quantidadeLocalidades();
+    this.quantidadeDomicilios();
   }
 
   onSelect(event) {
@@ -91,5 +99,17 @@ export class HomeComponent implements OnInit {
 
   register() {
     this.router.navigate(['/register']);
+  }
+
+  async quantidadeLocalidades() {
+    await this.localidadeService.count().then(res => {
+      this.totalLocalidades = res;
+    });
+  }
+
+  async quantidadeDomicilios() {
+    await this.domicilioService.count().then(res => {
+      this.totalDomicilios = res;
+    });
   }
 }

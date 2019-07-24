@@ -49,6 +49,13 @@ export class DomicilioService {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  count(): Promise<any> {
+    return this.http
+      .get(`${this.resourceUrl}/count`)
+      .toPromise()
+      .then(response => response);
+  }
+
   protected convertDateFromClient(domicilio: IDomicilio): IDomicilio {
     const copy: IDomicilio = Object.assign({}, domicilio, {
       dataCadastro: domicilio.dataCadastro != null && domicilio.dataCadastro.isValid() ? domicilio.dataCadastro.format(DATE_FORMAT) : null,
