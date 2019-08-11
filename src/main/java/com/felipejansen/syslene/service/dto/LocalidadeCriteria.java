@@ -39,6 +39,8 @@ public class LocalidadeCriteria implements Serializable, Criteria {
 
     private LongFilter userId;
 
+    private LongFilter cidadeId;
+
     public LocalidadeCriteria(){
     }
 
@@ -50,6 +52,7 @@ public class LocalidadeCriteria implements Serializable, Criteria {
         this.coletaResiduos = other.coletaResiduos == null ? null : other.coletaResiduos.copy();
         this.dataAlteracao = other.dataAlteracao == null ? null : other.dataAlteracao.copy();
         this.userId = other.userId == null ? null : other.userId.copy();
+        this.cidadeId = other.cidadeId == null ? null : other.cidadeId.copy();
     }
 
     @Override
@@ -113,6 +116,14 @@ public class LocalidadeCriteria implements Serializable, Criteria {
         this.userId = userId;
     }
 
+    public LongFilter getCidadeId() {
+        return cidadeId;
+    }
+
+    public void setCidadeId(LongFilter cidadeId) {
+        this.cidadeId = cidadeId;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -130,7 +141,8 @@ public class LocalidadeCriteria implements Serializable, Criteria {
             Objects.equals(esgotoSanitario, that.esgotoSanitario) &&
             Objects.equals(coletaResiduos, that.coletaResiduos) &&
             Objects.equals(dataAlteracao, that.dataAlteracao) &&
-            Objects.equals(userId, that.userId);
+            Objects.equals(userId, that.userId) &&
+            Objects.equals(cidadeId, that.cidadeId);
     }
 
     @Override
@@ -142,7 +154,8 @@ public class LocalidadeCriteria implements Serializable, Criteria {
         esgotoSanitario,
         coletaResiduos,
         dataAlteracao,
-        userId
+        userId,
+        cidadeId
         );
     }
 
@@ -156,6 +169,7 @@ public class LocalidadeCriteria implements Serializable, Criteria {
                 (coletaResiduos != null ? "coletaResiduos=" + coletaResiduos + ", " : "") +
                 (dataAlteracao != null ? "dataAlteracao=" + dataAlteracao + ", " : "") +
                 (userId != null ? "userId=" + userId + ", " : "") +
+                (cidadeId != null ? "cidadeId=" + cidadeId + ", " : "") +
             "}";
     }
 

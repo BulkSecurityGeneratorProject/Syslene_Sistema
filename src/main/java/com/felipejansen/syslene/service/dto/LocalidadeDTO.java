@@ -31,6 +31,10 @@ public class LocalidadeDTO implements Serializable {
 
     private String userFirstName;
 
+    private Long cidadeId;
+
+    private String cidadeDescricao;
+
     public Long getId() {
         return id;
     }
@@ -95,6 +99,22 @@ public class LocalidadeDTO implements Serializable {
         this.userFirstName = userFirstName;
     }
 
+    public Long getCidadeId() {
+        return cidadeId;
+    }
+
+    public void setCidadeId(Long cidadeId) {
+        this.cidadeId = cidadeId;
+    }
+
+    public String getCidadeDescricao() {
+        return cidadeDescricao;
+    }
+
+    public void setCidadeDescricao(String cidadeDescricao) {
+        this.cidadeDescricao = cidadeDescricao;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -127,6 +147,8 @@ public class LocalidadeDTO implements Serializable {
             ", dataAlteracao='" + getDataAlteracao() + "'" +
             ", user=" + getUserId() +
             ", user='" + getUserFirstName() + "'" +
+            ", cidade=" + getCidadeId() +
+            ", cidade='" + getCidadeDescricao() + "'" +
             "}";
     }
 }

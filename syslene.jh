@@ -1,3 +1,9 @@
+
+entity Cidade {
+descricao String required maxlength(80)
+estado String required
+}
+
 entity Localidade {
 descricao String required maxlength(80)
 abastecimentoAgua Boolean required
@@ -36,6 +42,7 @@ relationship ManyToOne {
 	Localidade{ user(firstName) } to User
     Domicilio{ user(firstName) } to User
     Domicilio{ localidade(descricao) } to Localidade
+    Localidade{ cidade(descricao) } to Cidade
 }
 
 

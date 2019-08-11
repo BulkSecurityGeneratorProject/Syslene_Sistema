@@ -9,6 +9,8 @@ export interface ILocalidade {
   dataAlteracao?: Moment;
   userFirstName?: string;
   userId?: number;
+  cidadeDescricao?: string;
+  cidadeId?: number;
 }
 
 export class Localidade implements ILocalidade {
@@ -20,7 +22,9 @@ export class Localidade implements ILocalidade {
     public coletaResiduos?: boolean,
     public dataAlteracao?: Moment,
     public userFirstName?: string,
-    public userId?: number
+    public userId?: number,
+    public cidadeDescricao?: string,
+    public cidadeId?: number
   ) {
     this.abastecimentoAgua = this.abastecimentoAgua || false;
     this.esgotoSanitario = this.esgotoSanitario || false;

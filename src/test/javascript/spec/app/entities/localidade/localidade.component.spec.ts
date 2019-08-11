@@ -6,7 +6,7 @@ import { ActivatedRoute, Data } from '@angular/router';
 
 import { SysleneTestModule } from '../../../test.module';
 import { LocalidadeComponent } from 'app/entities/localidade/localidade.component';
-import { LocalidadeService } from 'app/services/localidade.service';
+import { LocalidadeService } from 'app/entities/localidade/localidade.service';
 import { Localidade } from 'app/shared/model/localidade.model';
 
 describe('Component Tests', () => {

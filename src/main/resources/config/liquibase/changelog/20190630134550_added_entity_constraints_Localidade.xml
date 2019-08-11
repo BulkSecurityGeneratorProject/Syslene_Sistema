@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
 
+        <addForeignKeyConstraint baseColumnNames="cidade_id"
+                                 baseTableName="localidade"
+                                 constraintName="fk_localidade_cidade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cidade"/>
+
     </changeSet>
 </databaseChangeLog>

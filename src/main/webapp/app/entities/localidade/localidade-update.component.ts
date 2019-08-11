@@ -7,8 +7,10 @@ import { filter, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { JhiAlertService } from 'ng-jhipster';
 import { ILocalidade, Localidade } from 'app/shared/model/localidade.model';
-import { LocalidadeService } from '../../services/localidade.service';
+import { LocalidadeService } from './localidade.service';
 import { IUser, UserService } from 'app/core';
+import { ICidade } from 'app/shared/model/cidade.model';
+import { CidadeService } from 'app/entities/cidade';
 
 @Component({
   selector: 'jhi-localidade-update',
@@ -19,6 +21,8 @@ export class LocalidadeUpdateComponent implements OnInit {
   isSaving: boolean;
 
   users: IUser[];
+
+  cidades: ICidade[];
   dataAlteracaoDp: any;
 
   editForm = this.fb.group({
@@ -28,13 +32,15 @@ export class LocalidadeUpdateComponent implements OnInit {
     esgotoSanitario: [null, [Validators.required]],
     coletaResiduos: [null, [Validators.required]],
     dataAlteracao: [],
-    userId: []
+    userId: [],
+    cidadeId: []
   });
 
   constructor(
     protected jhiAlertService: JhiAlertService,
     protected localidadeService: LocalidadeService,
     protected userService: UserService,
+    protected cidadeService: CidadeService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -52,6 +58,13 @@ export class LocalidadeUpdateComponent implements OnInit {
         map((response: HttpResponse<IUser[]>) => response.body)
       )
       .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
+    this.cidadeService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<ICidade[]>) => mayBeOk.ok),
+        map((response: HttpResponse<ICidade[]>) => response.body)
+      )
+      .subscribe((res: ICidade[]) => (this.cidades = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(localidade: ILocalidade) {
@@ -62,7 +75,8 @@ export class LocalidadeUpdateComponent implements OnInit {
       esgotoSanitario: localidade.esgotoSanitario,
       coletaResiduos: localidade.coletaResiduos,
       dataAlteracao: localidade.dataAlteracao,
-      userId: localidade.userId
+      userId: localidade.userId,
+      cidadeId: localidade.cidadeId
     });
   }
 
@@ -89,7 +103,8 @@ export class LocalidadeUpdateComponent implements OnInit {
       esgotoSanitario: this.editForm.get(['esgotoSanitario']).value,
       coletaResiduos: this.editForm.get(['coletaResiduos']).value,
       dataAlteracao: this.editForm.get(['dataAlteracao']).value,
-      userId: this.editForm.get(['userId']).value
+      userId: this.editForm.get(['userId']).value,
+      cidadeId: this.editForm.get(['cidadeId']).value
     };
     return entity;
   }
@@ -111,6 +126,10 @@ export class LocalidadeUpdateComponent implements OnInit {
   }
 
   trackUserById(index: number, item: IUser) {
+    return item.id;
+  }
+
+  trackCidadeById(index: number, item: ICidade) {
     return item.id;
   }
 }

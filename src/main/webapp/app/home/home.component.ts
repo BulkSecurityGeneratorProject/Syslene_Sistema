@@ -102,9 +102,9 @@ export class HomeComponent implements OnInit {
   }
 
   async quantidadeLocalidades() {
-    await this.localidadeService.count().then(res => {
-      this.totalLocalidades = res;
-    });
+    // await this.localidadeService.count().then(res => {
+    //   this.totalLocalidades = res;
+    // });
   }
 
   async quantidadeDomicilios() {

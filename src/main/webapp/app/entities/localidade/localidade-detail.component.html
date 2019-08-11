@@ -29,6 +29,12 @@
                 <dd>
                     {{localidade.userFirstName}}
                 </dd>
+                <dt><span jhiTranslate="sysleneApp.localidade.cidade">Cidade</span></dt>
+                <dd>
+                    <div *ngIf="localidade.cidadeId">
+                        <a [routerLink]="['/cidade', localidade.cidadeId, 'view']">{{localidade.cidadeDescricao}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

@@ -9,12 +9,11 @@ import { ILocalidade } from 'app/shared/model/localidade.model';
 import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
-import { LocalidadeService } from '../../services/localidade.service';
+import { LocalidadeService } from './localidade.service';
 
 @Component({
   selector: 'jhi-localidade',
-  templateUrl: './localidade.component.html',
-  styleUrls: ['./localidade.component.scss']
+  templateUrl: './localidade.component.html'
 })
 export class LocalidadeComponent implements OnInit, OnDestroy {
   currentAccount: any;

@@ -3,6 +3,7 @@ package com.felipejansen.syslene.web.rest;
 import com.felipejansen.syslene.SysleneApp;
 import com.felipejansen.syslene.domain.Localidade;
 import com.felipejansen.syslene.domain.User;
+import com.felipejansen.syslene.domain.Cidade;
 import com.felipejansen.syslene.repository.LocalidadeRepository;
 import com.felipejansen.syslene.service.LocalidadeService;
 import com.felipejansen.syslene.service.dto.LocalidadeDTO;
@@ -529,6 +530,25 @@ public class LocalidadeResourceIT {
 
         // Get all the localidadeList where user equals to userId + 1
         defaultLocalidadeShouldNotBeFound("userId.equals=" + (userId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllLocalidadesByCidadeIsEqualToSomething() throws Exception {
+        // Initialize the database
+        Cidade cidade = CidadeResourceIT.createEntity(em);
+        em.persist(cidade);
+        em.flush();
+        localidade.setCidade(cidade);
+        localidadeRepository.saveAndFlush(localidade);
+        Long cidadeId = cidade.getId();
+
+        // Get all the localidadeList where cidade equals to cidadeId
+        defaultLocalidadeShouldBeFound("cidadeId.equals=" + cidadeId);
+
+        // Get all the localidadeList where cidade equals to cidadeId + 1
+        defaultLocalidadeShouldNotBeFound("cidadeId.equals=" + (cidadeId + 1));
     }
 
     /**

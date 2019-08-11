@@ -20,7 +20,8 @@
       "esgotoSanitario": "Esgoto Sanitario",
       "coletaResiduos": "Coleta Residuos",
       "dataAlteracao": "Data Alteracao",
-      "user": "User"
+      "user": "User",
+      "cidade": "Cidade"
     }
   }
 }

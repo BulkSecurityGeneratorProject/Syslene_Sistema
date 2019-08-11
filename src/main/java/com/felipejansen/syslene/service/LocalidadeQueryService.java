@@ -108,6 +108,10 @@ public class LocalidadeQueryService extends QueryService<Localidade> {
                 specification = specification.and(buildSpecification(criteria.getUserId(),
                     root -> root.join(Localidade_.user, JoinType.LEFT).get(User_.id)));
             }
+            if (criteria.getCidadeId() != null) {
+                specification = specification.and(buildSpecification(criteria.getCidadeId(),
+                    root -> root.join(Localidade_.cidade, JoinType.LEFT).get(Cidade_.id)));
+            }
         }
         return specification;
     }

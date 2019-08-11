@@ -78,7 +78,7 @@
                     <option value="true">Necessário</option>
                     <option value="false">Não Necessário</option>
                 </select>
-            </div>  
+            </div>
 
             <div class="form-group col-md-3">
                 <label>Filtro Doméstico</label>
@@ -141,11 +141,11 @@
                 <label>Levantamento</label>
                 <select name="levantamentoConcluido" class="custom-select" [(ngModel)]="levantamentoConcluido" (change)="loadAll()">
                     <option value="null"></option>
-                    <option value="true">Completo</option>
-                    <option value="false">Incompleto</option>
+                    <option value="true">ComIncompleto</option>
                 </select>
-            </div>  
-            <div class="col-md-12">
+            </div>
+            <div class="col-md-12">pleto</option>
+                    <option value="false">
                 <div class="table-responsive" *ngIf="domicilios">
                         <table class="table table-striped">
                             <thead>
@@ -214,7 +214,7 @@
                             <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
                         </div>
                     </div>
-            </div>          
-        </div>    
+            </div>
+        </div>
     </div>
 </div>

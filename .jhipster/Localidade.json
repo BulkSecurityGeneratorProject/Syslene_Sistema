@@ -43,6 +43,13 @@
             "otherEntityRelationshipName": "localidade",
             "relationshipName": "user",
             "otherEntityField": "firstName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cidade",
+            "otherEntityRelationshipName": "localidade",
+            "relationshipName": "cidade",
+            "otherEntityField": "descricao"
         }
     ],
     "changelogDate": "20190630134550",

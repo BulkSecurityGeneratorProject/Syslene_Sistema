@@ -11,6 +11,14 @@ import { RouterModule } from '@angular/router';
       {
         path: 'domicilio',
         loadChildren: './domicilio/domicilio.module#SysleneDomicilioModule'
+      },
+      {
+        path: 'cidade',
+        loadChildren: './cidade/cidade.module#SysleneCidadeModule'
+      },
+      {
+        path: 'localidade',
+        loadChildren: './localidade/localidade.module#SysleneLocalidadeModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
