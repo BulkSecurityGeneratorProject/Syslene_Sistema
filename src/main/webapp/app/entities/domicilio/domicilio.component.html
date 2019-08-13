@@ -144,20 +144,30 @@
                     <option value="true">ComIncompleto</option>
                 </select>
             </div>
-            <div class="col-md-12">pleto</option>
-                    <option value="false">
-                <div class="table-responsive" *ngIf="domicilios">
+            <div class="form-group col-md-3">
+                <label>Localidade</label>
+                <select name="localidade" class="custom-select" [(ngModel)]="localidade" (change)="loadAll()">
+                    <option value="null" (select)="loadAll()"></option>
+                    <option [value]="cidade.id" *ngFor="let cidade of cidades">{{ cidade.descricao }}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="alert alert-primary" role="alert" *ngIf="domicilios.length == 0">
+                    Não existem domicílios cadastrados com base na sua pesquisa
+                </div>
+            </div>
+            <div class="table-responsive" *ngIf="domicilios.length > 0">
                         <table class="table table-striped">
                             <thead>
                             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-                            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                            <th jhiSortBy="nomeMorador"><span>Nome do Morador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                            <th jhiSortBy="endereco"><span>Endereço</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                            <th jhiSortBy="levantamentoConcluido"><span>Levantamento Concluído</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                            <th jhiSortBy="dataCadastro"><span>Data de Cadastro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                            <th jhiSortBy="userFirstName"><span>Usuário</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                            <th jhiSortBy="localidade"><span>Localidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                            <th></th>
+                                <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                                <th jhiSortBy="nomeMorador"><span>Nome do Morador</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                                <th jhiSortBy="endereco"><span>Endereço</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                                <th jhiSortBy="levantamentoConcluido"><span>Levantamento Concluído</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                                <th jhiSortBy="dataCadastro"><span>Data de Cadastro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                                <th jhiSortBy="userFirstName"><span>Usuário</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                                <th jhiSortBy="localidade"><span>Localidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -166,8 +176,8 @@
                                 <td>{{domicilio.nomeMorador}}</td>
                                 <td>{{domicilio.endereco}}</td>
                                 <td style="text-align: center;">
-                                        <fa-icon [icon]="domicilio.levantamentoConcluido ? 'check' : 'times'" aria-hidden="true" class="{{ domicilio.levantamentoConcluido ? 'text-success' : 'text-danger'}}">
-                                        </fa-icon>
+                                    <fa-icon [icon]="domicilio.levantamentoConcluido ? 'check' : 'times'" aria-hidden="true" class="{{ domicilio.levantamentoConcluido ? 'text-success' : 'text-danger'}}">
+                                    </fa-icon>
                                 </td>
                                 <td>{{domicilio.dataCadastro | date:'mediumDate'}}</td>
                                 <td>
@@ -206,15 +216,17 @@
                             </tbody>
                         </table>
                     </div>
-                    <div *ngIf="domicilios && domicilios.length">
-                        <div class="row justify-content-center">
-                            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
-                        </div>
-                        <div class="row justify-content-center">
-                            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
-                        </div>
+                    <div class="col-md-12">
+                            <div *ngIf="domicilios && domicilios.length">
+                                <div class="row justify-content-center">
+                                    <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+                                </div>
+                            </div>
                     </div>
             </div>
         </div>
     </div>
-</div>
+

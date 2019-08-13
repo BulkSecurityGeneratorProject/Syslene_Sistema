@@ -12,6 +12,8 @@ import { ITEMS_PER_PAGE } from 'app/shared';
 import { DomicilioService } from '../../services/domicilio.service';
 import { saveAs } from 'file-saver';
 import { ExcelService } from 'app/services/excel.service';
+import { ICidade } from 'app/shared/model/cidade.model';
+import { CidadeService } from 'app/entities/cidade';
 
 @Component({
   selector: 'jhi-domicilio',
@@ -20,6 +22,7 @@ import { ExcelService } from 'app/services/excel.service';
 })
 export class DomicilioComponent implements OnInit, OnDestroy {
   currentAccount: any;
+  cidades: ICidade[];
   domicilios: IDomicilio[];
   error: any;
   success: any;
@@ -49,6 +52,7 @@ export class DomicilioComponent implements OnInit, OnDestroy {
   ligacaoDomiciliarEsgoto = 'null';
   recipenteResiduosSolidos = 'null';
   levantamentoConcluido = 'null';
+  localidade = 'null';
 
   constructor(
     protected domicilioService: DomicilioService,
@@ -58,7 +62,8 @@ export class DomicilioComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    private excelService: ExcelService
+    private excelService: ExcelService,
+    protected cidadeService: CidadeService
   ) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -95,7 +100,8 @@ export class DomicilioComponent implements OnInit, OnDestroy {
       req['recipenteResiduosSolidos.equals'] = this.recipenteResiduosSolidos;
     if (this.levantamentoConcluido && this.levantamentoConcluido != 'null')
       req['levantamentoConcluido.equals'] = this.levantamentoConcluido;
-
+    if (this.localidade && this.localidade != 'null') req['localidadeId.equals'] = this.localidade;
+    console.log(this.localidade);
     this.domicilioService
       .query(req)
       .subscribe(
@@ -131,6 +137,26 @@ export class DomicilioComponent implements OnInit, OnDestroy {
       }
     });
     this.loadAll();
+    this.loadAllCidades();
+  }
+
+  loadAllCidades() {
+    this.cidadeService
+      .query({
+        page: this.page - 1,
+        size: this.itemsPerPage,
+        sort: this.sort()
+      })
+      .subscribe(
+        (res: HttpResponse<ICidade[]>) => this.paginateCidades(res.body, res.headers),
+        (res: HttpErrorResponse) => this.onError(res.message)
+      );
+  }
+  protected paginateCidades(data: ICidade[], headers: HttpHeaders) {
+    this.links = this.parseLinks.parse(headers.get('link'));
+    this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
+    this.cidades = data;
+    console.log(this.cidades);
   }
 
   clear() {
@@ -147,6 +173,7 @@ export class DomicilioComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadAll();
+    this.loadAllCidades();
     this.accountService.identity().then(account => {
       this.currentAccount = account;
     });

@@ -107,6 +107,20 @@ public class CidadeResource {
     }
 
     /**
+     * {@code GET  /cidades} : get all the cidades.
+     *
+     * @param pageable the pagination information.
+     * @param criteria the criteria which the requested entities should match.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of cidades in body.
+     */
+    @GetMapping("/cidades-no-page")
+    public ResponseEntity<List<CidadeDTO>> getAllCidadesNoPage(CidadeCriteria criteria, Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
+        log.debug("REST request to get Cidades by criteria: {}", criteria);
+        List<CidadeDTO> list = cidadeQueryService.findByCriteria(criteria);
+        return ResponseEntity.ok().headers(null).body(list);
+    }
+
+    /**
     * {@code GET  /cidades/count} : count all the cidades.
     *
     * @param criteria the criteria which the requested entities should match.
