@@ -113,7 +113,7 @@ public class CidadeResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of cidades in body.
      */
-    @GetMapping("/cidades-no-page")
+    @GetMapping("/cidades/cidades-no-page")
     public ResponseEntity<List<CidadeDTO>> getAllCidadesNoPage(CidadeCriteria criteria, Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
         log.debug("REST request to get Cidades by criteria: {}", criteria);
         List<CidadeDTO> list = cidadeQueryService.findByCriteria(criteria);
