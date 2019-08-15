@@ -54,6 +54,8 @@ public class LocalidadeQueryService extends QueryService<Localidade> {
         return localidadeMapper.toDto(localidadeRepository.findAll(specification));
     }
 
+
+
     /**
      * Return a {@link Page} of {@link LocalidadeDTO} which matches the criteria from the database.
      * @param criteria The object which holds all the filters, which the entities should match.

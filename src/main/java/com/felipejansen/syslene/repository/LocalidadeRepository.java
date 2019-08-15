@@ -1,7 +1,9 @@
 package com.felipejansen.syslene.repository;
 
 import com.felipejansen.syslene.domain.Localidade;
+import com.felipejansen.syslene.service.dto.LocalidadeDTO;
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,5 +17,4 @@ public interface LocalidadeRepository extends JpaRepository<Localidade, Long>, J
 
     @Query("select localidade from Localidade localidade where localidade.user.login = ?#{principal.username}")
     List<Localidade> findByUserIsCurrentUser();
-
 }

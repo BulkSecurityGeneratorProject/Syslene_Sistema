@@ -12,7 +12,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import springfox.documentation.swagger2.mappers.ModelMapper;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -60,7 +62,6 @@ public class LocalidadeServiceImpl implements LocalidadeService {
         return localidadeRepository.findAll(pageable)
             .map(localidadeMapper::toDto);
     }
-
 
     /**
      * Get one localidade by id.

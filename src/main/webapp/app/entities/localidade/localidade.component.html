@@ -29,9 +29,9 @@
             <tr *ngFor="let localidade of localidades ;trackBy: trackId">
                 <td><a [routerLink]="['/localidade', localidade.id, 'view' ]">{{localidade.id}}</a></td>
                 <td>{{localidade.descricao}}</td>
-                <td>{{localidade.abastecimentoAgua}}</td>
-                <td>{{localidade.esgotoSanitario}}</td>
-                <td>{{localidade.coletaResiduos}}</td>
+                <td><fa-icon [icon]="localidade.abastecimentoAgua ? 'check' : 'times'" aria-hidden="true" class="{{ localidade.abastecimentoAgua ? 'text-success' : 'text-danger'}}"></fa-icon></td>
+                <td><fa-icon [icon]="localidade.esgotoSanitario ? 'check' : 'times'" aria-hidden="true" class="{{ localidade.esgotoSanitario ? 'text-success' : 'text-danger'}}"></fa-icon></td>
+                <td><fa-icon [icon]="localidade.coletaResiduos ? 'check' : 'times'" aria-hidden="true" class="{{ localidade.coletaResiduos ? 'text-success' : 'text-danger'}}"></fa-icon></td>
                 <td>{{localidade.dataAlteracao | date:'mediumDate'}}</td>
                 <td>
                     {{localidade.userFirstName}}

@@ -1,5 +1,7 @@
 package com.felipejansen.syslene.web.rest;
 
+import com.felipejansen.syslene.domain.Localidade;
+import com.felipejansen.syslene.repository.LocalidadeRepository;
 import com.felipejansen.syslene.service.LocalidadeService;
 import com.felipejansen.syslene.web.rest.errors.BadRequestAlertException;
 import com.felipejansen.syslene.service.dto.LocalidadeDTO;
@@ -11,6 +13,7 @@ import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -43,6 +46,9 @@ public class LocalidadeResource {
     private String applicationName;
 
     private final LocalidadeService localidadeService;
+
+    @Autowired
+    private LocalidadeRepository localidadeRepository;
 
     private final LocalidadeQueryService localidadeQueryService;
 
