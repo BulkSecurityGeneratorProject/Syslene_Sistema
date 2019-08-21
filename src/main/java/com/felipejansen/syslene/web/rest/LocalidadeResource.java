@@ -112,6 +112,13 @@ public class LocalidadeResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/localidades-nopage")
+    public ResponseEntity<List<LocalidadeDTO>> getAllLocalidadesNoPage(LocalidadeCriteria criteria, Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
+        log.debug("REST request to get Localidades by criteria: {}", criteria);
+        List<LocalidadeDTO> list = localidadeQueryService.findByCriteria(criteria);
+        return ResponseEntity.ok().headers(null).body(list);
+    }
+
     /**
     * {@code GET  /localidades/count} : count all the localidades.
     *

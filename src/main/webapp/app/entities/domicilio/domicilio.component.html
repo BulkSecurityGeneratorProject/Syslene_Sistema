@@ -148,11 +148,11 @@
                 <label>Localidade</label>
                 <select name="localidade" class="custom-select" [(ngModel)]="localidade" (change)="loadAll()">
                     <option value="null" (select)="loadAll()"></option>
-                    <option [value]="cidade.id" *ngFor="let cidade of cidades">{{ cidade.descricao }}</option>
+                    <option [value]="localidade.id" *ngFor="let localidade of localidades">{{ localidade.descricao }}</option>
                 </select>
             </div>
-            <div class="form-group col-md-12">
-                <div class="alert alert-primary" role="alert" *ngIf="domicilios.length == 0">
+            <div class="form-group col-md-12" *ngIf="domicilios.length === 0">
+                <div class="alert alert-primary" role="alert">
                     Não existem domicílios cadastrados com base na sua pesquisa
                 </div>
             </div>

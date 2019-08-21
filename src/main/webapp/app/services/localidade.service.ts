@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ILocalidade } from 'app/shared/model/localidade.model';
+import { IDomicilio } from 'app/shared/model/domicilio.model';
 
 type EntityResponseType = HttpResponse<ILocalidade>;
 type EntityArrayResponseType = HttpResponse<ILocalidade[]>;
@@ -43,6 +44,15 @@ export class LocalidadeService {
     return this.http
       .get<ILocalidade[]>(this.resourceUrl, { params: options, observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
+  queryNoPage(req?: any): Promise<any> {
+    return this.http
+      .get<ILocalidade[]>(this.resourceUrl + '-nopage')
+      .toPromise()
+      .then(res => {
+        return res;
+      });
   }
 
   delete(id: number): Observable<HttpResponse<any>> {
