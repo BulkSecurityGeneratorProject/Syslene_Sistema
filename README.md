@@ -11,3 +11,8 @@ O aplicativo foi desenvolvido com Ionic, conta com geolocalização e a interfac
 O sistema foi desenvolvido com o framework Angular 2+ e conta com um filtro robusto na tela inicial, a autenticação foi implementada com o JWT.
 
 A API foi desenvolvida em Java, utilizando o framework Spring, a base de dados é Postgres e o modo de deploy foi realizado com Docker. 
+
+# Executando
+    - Baixe uma cópia no seu computador
+    - Inicialize a API (./mvnw)
+    - Inicialize o Frontend (npm start)
